@@ -4,7 +4,8 @@ import argparse
 import numpy
 import os
 import tensorflow as tf
-
+import pyximport
+pyximport.install()
 import lossless.compression
 import lossless.interface_cython
 import lossless.stats
