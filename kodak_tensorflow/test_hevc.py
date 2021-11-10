@@ -29,7 +29,7 @@ class TesterHEVCUtils(object):
         path_to_bitstream = 'hevc/temp/bitstream.bin'
         qp = 42
         
-        rgb_uint8 = tls.read_image_mode('hevc/pseudo_data/rgb_nightshot.jpg',
+        rgb_uint8 = tls.read_image_mode('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/rgb_nightshot.jpg',
                                         'RGB')
         (height_initial, width_initial, _) = rgb_uint8.shape
         height_surplus = height_initial % 8
