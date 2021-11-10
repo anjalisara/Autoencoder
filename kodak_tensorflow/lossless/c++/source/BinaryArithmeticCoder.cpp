@@ -1,7 +1,7 @@
 #include "BinaryArithmeticCoder.h"
 
 #define PRECISION 16
-
+#include <cmath>
 /*
 The precedence of ...<<... (bitwise left shift)
 is lower than the precedence of (type)...
@@ -143,7 +143,7 @@ void BinaryArithmeticCoder::reset_coder()
 
 error_code BinaryArithmeticCoder::update_middle(double const& probability)
 {
-    if (isnan(probability))
+    if (std::isnan(probability))
     {
         return probability_error;
     }
