@@ -16,9 +16,9 @@ from distutils.core import setup
 from distutils.extension import Extension
 
 if __name__ == '__main__':
-    path_to_cplusplus = 'c++/source/'
+    path_to_cplusplus = '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/c++/source/'
     sources = [
-        '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless//interface_cython.pyx',
+        '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/interface_cython.pyx',
         os.path.join(path_to_cplusplus, 'utils.cpp'),
         os.path.join(path_to_cplusplus, 'Bitstream.cpp'),
         os.path.join(path_to_cplusplus, 'BinaryArithmeticCoder.cpp'),
