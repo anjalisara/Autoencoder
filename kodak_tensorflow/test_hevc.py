@@ -23,10 +23,10 @@ class TesterHEVCUtils(object):
         with HEVC compression artefacts.
         
         """
-        path_to_before_hevc = 'hevc/temp/luminance_before_hevc.yuv'
-        path_to_after_hevc = 'hevc/temp/luminance_after_hevc.yuv'
-        path_to_cfg = 'hevc/configuration/intra.cfg'
-        path_to_bitstream = 'hevc/temp/bitstream.bin'
+        path_to_before_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_before_hevc.yuv'
+        path_to_after_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_after_hevc.yuv'
+        path_to_cfg = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/configuration/intra.cfg'
+        path_to_bitstream = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/bitstream.bin'
         qp = 42
         
         rgb_uint8 = tls.read_image_mode('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/rgb_nightshot.jpg',
@@ -35,7 +35,7 @@ class TesterHEVCUtils(object):
         height_surplus = height_initial % 8
         width_surplus = width_initial % 8
         luminance_uint8 = tls.rgb_to_ycbcr(rgb_uint8)[0:height_initial - height_surplus, 0:width_initial - width_surplus, 0]
-        tls.save_image('hevc/pseudo_visualization/compress_hevc/luminance_before.png',
+        tls.save_image('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/compress_hevc/luminance_before.png',
                        luminance_uint8)
         luminance_before_hevc_uint8 = numpy.expand_dims(luminance_uint8, axis=2)
         luminance_after_hevc_uint8 = hevc.hevc.compress_hevc(luminance_before_hevc_uint8,
@@ -60,12 +60,12 @@ class TesterHEVCUtils(object):
         "hevc/pseudo_data/rgb_nightshot.jpg".
         
         """
-        path_to_before_hevc = 'hevc/temp/luminance_before_hevc.yuv'
-        path_to_after_hevc = 'hevc/temp/luminance_after_hevc.yuv'
-        path_to_cfg = 'hevc/configuration/intra.cfg'
-        path_to_bitstream = 'hevc/temp/bitstream.bin'
+        path_to_before_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_before_hevc.yuv'
+        path_to_after_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_after_hevc.yuv'
+        path_to_cfg = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/configuration/intra.cfg'
+        path_to_bitstream = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/bitstream.bin'
         qp = 42
-        path_to_storage = 'hevc/pseudo_visualization/compute_rate_psnr/'
+        path_to_storage = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/compute_rate_psnr/'
         list_rotation = [0, 11, 4]
         positions_top_left = numpy.array([[300], [200]], dtype=numpy.int32)
         
@@ -104,12 +104,12 @@ class TesterHEVCUtils(object):
         quantization parameter.
         
         """
-        path_to_before_hevc = 'hevc/temp/luminance_before_hevc.yuv'
-        path_to_after_hevc = 'hevc/temp/luminance_after_hevc.yuv'
-        path_to_cfg = 'hevc/configuration/intra.cfg'
-        path_to_bitstream = 'hevc/temp/bitstream.bin'
+        path_to_before_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_before_hevc.yuv'
+        path_to_after_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_after_hevc.yuv'
+        path_to_cfg = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/configuration/intra.cfg'
+        path_to_bitstream = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/bitstream.bin'
         qps = numpy.array([22, 42], dtype=numpy.int32)
-        path_to_hevc_vis = 'hevc/pseudo_visualization/evaluate_hevc/'
+        path_to_hevc_vis = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/evaluate_hevc/'
         list_rotation = [0, 11, 4]
         positions_top_left = numpy.array([[300], [200]], dtype=numpy.int32)
         
@@ -151,7 +151,7 @@ class TesterHEVCUtils(object):
         nb_frames = 1
         data_type = numpy.uint8
         
-        expanded_luminance_uint8 = hevc.hevc.read_400('hevc/pseudo_data/luminance_nightshot.yuv',
+        expanded_luminance_uint8 = hevc.hevc.read_400('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/luminance_nightshot.yuv',
                                                       height,
                                                       width,
                                                       nb_frames,
@@ -170,8 +170,8 @@ class TesterHEVCUtils(object):
         "hevc/pseudo_visualization/read_400.png".
         
         """
-        path_to_yuv = 'hevc/pseudo_data/luminance_nightshot.yuv'
-        rgb_uint8 = tls.read_image_mode('hevc/pseudo_data/rgb_nightshot.jpg',
+        path_to_yuv = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/luminance_nightshot.yuv'
+        rgb_uint8 = tls.read_image_mode('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/rgb_nightshot.jpg',
                                         'RGB')
         luminance_uint8 = tls.rgb_to_ycbcr(rgb_uint8)[:, :, 0]
         tls.save_image('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/write_400.png',
