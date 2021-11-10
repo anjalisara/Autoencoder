@@ -45,7 +45,7 @@ class TesterHEVCUtils(object):
                                                              path_to_bitstream,
                                                              qp,
                                                              True)
-        tls.save_image('hevc/pseudo_visualization/compress_hevc/luminance_after.png',
+        tls.save_image('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/compress_hevc/luminance_after.png',
                        numpy.squeeze(luminance_after_hevc_uint8, axis=2))
     
     def test_compute_rate_psnr(self):
@@ -69,7 +69,7 @@ class TesterHEVCUtils(object):
         list_rotation = [0, 11, 4]
         positions_top_left = numpy.array([[300], [200]], dtype=numpy.int32)
         
-        rgb_uint8 = tls.read_image_mode('hevc/pseudo_data/rgb_nightshot.jpg',
+        rgb_uint8 = tls.read_image_mode('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/rgb_nightshot.jpg',
                                         'RGB')
         (height_initial, width_initial, _) = rgb_uint8.shape
         height_surplus = height_initial % 8
@@ -113,7 +113,7 @@ class TesterHEVCUtils(object):
         list_rotation = [0, 11, 4]
         positions_top_left = numpy.array([[300], [200]], dtype=numpy.int32)
         
-        rgb_uint8 = tls.read_image_mode('hevc/pseudo_data/rgb_nightshot.jpg',
+        rgb_uint8 = tls.read_image_mode('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_data/rgb_nightshot.jpg',
                                         'RGB')
         (height_initial, width_initial, _) = rgb_uint8.shape
         height_surplus = height_initial % 8
@@ -157,7 +157,7 @@ class TesterHEVCUtils(object):
                                                       nb_frames,
                                                       data_type)
         luminance_uint8 = numpy.squeeze(expanded_luminance_uint8, axis=2)
-        tls.save_image('hevc/pseudo_visualization/read_400.png',
+        tls.save_image('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/read_400.png',
                        luminance_uint8)
     
     def test_write_400(self):
@@ -174,7 +174,7 @@ class TesterHEVCUtils(object):
         rgb_uint8 = tls.read_image_mode('hevc/pseudo_data/rgb_nightshot.jpg',
                                         'RGB')
         luminance_uint8 = tls.rgb_to_ycbcr(rgb_uint8)[:, :, 0]
-        tls.save_image('hevc/pseudo_visualization/write_400.png',
+        tls.save_image('/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/pseudo_visualization/write_400.png',
                        luminance_uint8)
         if os.path.isfile(path_to_yuv):
             print('"{}" exists. Remove it manually and restart the same test.'.format(path_to_yuv))
