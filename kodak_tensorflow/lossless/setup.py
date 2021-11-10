@@ -18,7 +18,7 @@ from distutils.extension import Extension
 if __name__ == '__main__':
     path_to_cplusplus = 'c++/source/'
     sources = [
-        'interface_cython.pyx',
+        '../input/autoencoder/autoencoder_based_image_compression-master/kodak_tensorflow/lossless/interface_cython.pyx',
         os.path.join(path_to_cplusplus, 'utils.cpp'),
         os.path.join(path_to_cplusplus, 'Bitstream.cpp'),
         os.path.join(path_to_cplusplus, 'BinaryArithmeticCoder.cpp'),
