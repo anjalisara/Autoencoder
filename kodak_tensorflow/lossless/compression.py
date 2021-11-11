@@ -1,7 +1,8 @@
 """A library that contains functions for compressing via the C++ lossless coder."""
 
 import numpy
-
+import pyximport
+pyximport.install()
 import lossless.interface_cython
 import tools.tools as tls
 
