@@ -25,7 +25,7 @@ if __name__ == '__main__':
         os.path.join(path_to_cplusplus, 'LosslessCoder.cpp'),
         os.path.join(path_to_cplusplus, 'compression.cpp')
     ]
-    ext = Extension('/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/interface_cython.pyx',
+    ext = Extension('interface_cython.pyx',
                     sources=sources,
                     language='c++',
                     extra_compile_args=['-std=c++11']
@@ -34,4 +34,3 @@ if __name__ == '__main__':
           include_dirs=[numpy.get_include()])
 
 
-# sdfsdjnfgjf
