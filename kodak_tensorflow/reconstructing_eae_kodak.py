@@ -6,7 +6,7 @@ the Kodak test set can be replaced by the BSDS
 test set.
 
 """
-
+origin='/kaggle/temp/Autoencoder/kodak_tensorflow/'
 import argparse
 import matplotlib
 try:
@@ -107,6 +107,7 @@ def fix_gamma(reference_uint8, bin_width_init, multipliers, idx_training, gamma_
             quantization bin widths.
     
     """
+    
     nb_points = multipliers.size
     (nb_images, h_in, w_in) = reference_uint8.shape
     rate = numpy.zeros((nb_points, nb_images))
@@ -115,8 +116,8 @@ def fix_gamma(reference_uint8, bin_width_init, multipliers, idx_training, gamma_
         suffix = 'learning_bw_{0}_{1}'.format(tls.float_to_str(bin_width_init), tls.float_to_str(gamma_scaling))
     else:
         suffix = '{0}_{1}'.format(tls.float_to_str(bin_width_init), tls.float_to_str(gamma_scaling))
-    path_to_nb_itvs_per_side_load = 'eae/results/{0}/nb_itvs_per_side_{1}.pkl'.format(suffix, idx_training)
-    path_to_restore = 'eae/results/{0}/model_{1}.ckpt'.format(suffix, idx_training)
+    path_to_nb_itvs_per_side_load = '/kaggle/temp/Autoencoder/kodak_tensorflow/eae/results/{0}/nb_itvs_per_side_{1}.pkl'.format(suffix, idx_training)
+    path_to_restore = '/kaggle/temp/Autoencoder/kodak_tensorflow/eae/results/{0}/model_{1}.ckpt'.format(suffix, idx_training)
     if is_lossless:
         path_to_vis = os.path.join(path_to_checking_r,
                                    'reconstruction_fix_gamma',
@@ -127,7 +128,7 @@ def fix_gamma(reference_uint8, bin_width_init, multipliers, idx_training, gamma_
                                    'reconstruction_fix_gamma',
                                    suffix,
                                    'approx')
-    path_to_stats = 'lossless/results/{0}/training_index_{1}/'.format(suffix, idx_training)
+    path_to_stats = '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/results/{0}/training_index_{1}/'.format(suffix, idx_training)
     path_to_map_mean = os.path.join(path_to_stats,
                                     'map_mean.npy')
     
@@ -486,8 +487,8 @@ def vary_gamma_fix_bin_widths(reference_uint8, bin_width_init, idxs_training, ga
         idx_training = idxs_training[i].item()
         suffix = '{0}_{1}'.format(tls.float_to_str(bin_width_init),
                                   tls.float_to_str(gamma_scaling))
-        path_to_nb_itvs_per_side_load = 'eae/results/{0}/nb_itvs_per_side_{1}.pkl'.format(suffix, idx_training)
-        path_to_restore = 'eae/results/{0}/model_{1}.ckpt'.format(suffix, idx_training)
+        path_to_nb_itvs_per_side_load = '/kaggle/temp/Autoencoder/kodak_tensorflow/eae/results/{0}/nb_itvs_per_side_{1}.pkl'.format(suffix, idx_training)
+        path_to_restore = '/kaggle/temp/Autoencoder/kodak_tensorflow/eae/results/{0}/model_{1}.ckpt'.format(suffix, idx_training)
         path_to_storage = os.path.join(path_to_checking_r,
                                        'reconstruction_vary_gamma_fix_bin_widths',
                                        suffix)
@@ -640,7 +641,7 @@ if __name__ == '__main__':
     path_to_list_rotation = os.path.join('datasets',
                                          str_set,
                                          'results/list_rotation.pkl')
-    path_to_checking_r = os.path.join('eae/visualization/test/checking_reconstructing/',
+    path_to_checking_r = os.path.join(origin,'eae/visualization/test/checking_reconstructing/',
                                       str_set)
     
     # The block below is dedicated to JPEG2000.
@@ -653,16 +654,16 @@ if __name__ == '__main__':
     qualities = [24, 26, 28, 30, 32, 34, 36, 38, 40]
     
     # The block below is dedicated to HEVC.
-    path_to_before_hevc = 'hevc/temp/luminance_before_hevc.yuv'
-    path_to_after_hevc = 'hevc/temp/luminance_after_hevc.yuv'
-    path_to_cfg = 'hevc/configuration/intra.cfg'
-    path_to_bitstream = 'hevc/temp/bitstream.bin'
+    path_to_before_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_before_hevc.yuv'
+    path_to_after_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_after_hevc.yuv'
+    path_to_cfg = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/configuration/intra.cfg'
+    path_to_bitstream = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/bitstream.bin'
     qps = numpy.array([22, 27, 32, 37, 42, 47], dtype=numpy.int32)
-    path_to_hevc_vis = os.path.join('hevc/visualization/',
+    path_to_hevc_vis = os.path.join(origin,'hevc/visualization/',
                                     str_set)
     
     # `reference_uint8.dtype` is equal to `numpy.uint8`.
-    reference_uint8 = numpy.load(os.path.join('datasets', str_set, 'results', '{}.npy'.format(str_set)))
+    reference_uint8 = numpy.load(os.path.join(origin,'datasets', str_set, 'results', '{}.npy'.format(str_set)))
     with open(path_to_list_rotation, 'rb') as file:
         list_rotation = pickle.load(file)
     if args.write_ref:
