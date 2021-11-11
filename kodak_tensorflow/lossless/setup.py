@@ -8,7 +8,8 @@ Type:
 $ python setup.py build_ext --inplace
 
 """
-
+import pyximport
+pyximport.install()
 import numpy
 import os
 from Cython.Build import cythonize
