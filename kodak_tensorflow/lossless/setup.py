@@ -12,8 +12,8 @@ $ python setup.py build_ext --inplace
 import numpy
 import os
 from Cython.Build import cythonize
-from distutils.core import setup
-from distutils.extension import Extension
+from distutils.core import setup, Extension
+# from distutils.extension import Extension
 
 if __name__ == '__main__':
     path_to_cplusplus = '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/c++/source/'
