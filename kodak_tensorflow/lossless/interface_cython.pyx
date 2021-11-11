@@ -3,7 +3,7 @@
 import numpy
 cimport numpy
 
-cdef extern from "c++/source/compression.h":
+cdef extern from "/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/c++/source/compression.h":
     cdef numpy.uint32_t compress_lossless(const numpy.uint32_t&,
                                           const numpy.int16_t* const,
                                           numpy.int16_t* const,
