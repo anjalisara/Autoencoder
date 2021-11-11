@@ -28,8 +28,9 @@ if __name__ == '__main__':
     ext = Extension('interface_cython.pyx',
                     sources=sources,
                     language='c++',
-                    extra_compile_args=['-std=c++11'])
-    setup(ext_modules=cythonize(ext),
+                    extra_compile_args=['-std=c++11']
+                    )
+    setup(ext_modules=cythonize('interface_cython.pyx'),
           include_dirs=[numpy.get_include()])
 
 
