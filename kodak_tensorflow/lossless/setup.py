@@ -26,7 +26,7 @@ if __name__ == '__main__':
         os.path.join(path_to_cplusplus, 'LosslessCoder.cpp'),
         os.path.join(path_to_cplusplus, 'compression.cpp')
     ]
-    ext = Extension('/kaggle/temp/Autoencoder/kodak_tensorflow/lossless/interface_cython.pyx',
+    ext = Extension('interface_cython',
                     sources=sources,
                     language='c++',
                     extra_compile_args=['-std=c++11']
