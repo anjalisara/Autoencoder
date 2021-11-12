@@ -652,7 +652,7 @@ if __name__ == '__main__':
                                           str_set,
                                           'reconstruction')
     qualities = [24, 26, 28, 30, 32, 34, 36, 38, 40]
-    
+    #
     # The block below is dedicated to HEVC.
     path_to_before_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_before_hevc.yuv'
     path_to_after_hevc = '/kaggle/temp/Autoencoder/kodak_tensorflow/hevc/temp/luminance_after_hevc.yuv'
