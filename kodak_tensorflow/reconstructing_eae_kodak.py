@@ -28,6 +28,8 @@ import tools.tools as tls
 from eae.graph.EntropyAutoencoder import EntropyAutoencoder
 from eae.graph.IsolatedDecoder import IsolatedDecoder
 
+
+#hallo
 def fix_gamma(reference_uint8, bin_width_init, multipliers, idx_training, gamma_scaling, batch_size,
               are_bin_widths_learned, is_lossless, path_to_checking_r, list_rotation, positions_top_left):
     """Computes a series of pairs (rate, PSNR).
