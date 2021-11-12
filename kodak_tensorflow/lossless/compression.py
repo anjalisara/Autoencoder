@@ -3,10 +3,12 @@
 import numpy
 import pyximport
 pyximport.install()
+import sys
+#sys.path.append("kaggle/temp/Autoencoder/kodak_tensorflow/lossless")
 #changes
 # import kaggle.temp.Autoencoder.kodak_tensorflow.lossless.interface_cython
 #from kaggle.temp.Autoencoder.kodak_tensorflow.lossless import *
-import lossless.interface_cython
+import interface_cython
 import tools.tools as tls
 
 # The functions are sorted in
