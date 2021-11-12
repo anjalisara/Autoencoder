@@ -23,10 +23,21 @@ import tensorflow as tf
 import eae.batching
 import hevc.hevc
 import jpeg2000.jpeg2000
+setup(
+    ext_modules=[
+        Extension("my_module", ["my_module.c"],
+                  include_dirs=[numpy.get_include()]),
+    ],
+)
 import lossless.compression
 import tools.tools as tls
 from eae.graph.EntropyAutoencoder import EntropyAutoencoder
 from eae.graph.IsolatedDecoder import IsolatedDecoder
+
+from distutils.core import setup, Extension
+import numpy
+
+
 
 
 #hallo
