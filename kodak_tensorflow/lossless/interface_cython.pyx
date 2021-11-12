@@ -2,6 +2,15 @@
 
 import numpy
 cimport numpy
+from distutils.core import setup, Extension
+import numpy
+
+setup(
+    ext_modules=[
+        Extension("my_module", ["my_module.c"],
+                  include_dirs=[numpy.get_include()]),
+    ],
+)
 
 cdef extern from "c++/source/compression.h":
     cdef numpy.uint32_t compress_lossless(const numpy.uint32_t&,
