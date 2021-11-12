@@ -4,7 +4,8 @@ import numpy
 import pyximport
 pyximport.install()
 #changes
-import kaggle.temp.Autoencoder.kodak_tensorflow.lossless.interface_cython
+# import kaggle.temp.Autoencoder.kodak_tensorflow.lossless.interface_cython
+import lossless.interface_cython
 import tools.tools as tls
 
 # The functions are sorted in
