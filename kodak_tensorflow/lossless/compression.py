@@ -3,11 +3,14 @@
 import numpy
 import pyximport
 pyximport.install()
-import sys
-#sys.path.append("kaggle/temp/Autoencoder/kodak_tensorflow/lossless")
 #changes
 # import kaggle.temp.Autoencoder.kodak_tensorflow.lossless.interface_cython
-#from kaggle.temp.Autoencoder.kodak_tensorflow.lossless import *
+# from kaggle.temp.Autoencoder.kodak_tensorflow.lossless import *
+# importing sys
+import sys
+  
+# adding Folder to the system path
+sys.path.insert(0, '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless')
 import interface_cython
 import tools.tools as tls
 
@@ -82,7 +85,7 @@ def compress_lossless_maps(ref_int16, path_to_binary_probabilities, idx_map_exce
         else:
             ref_map_int16 = ref_int16[:, :, i].flatten()
             (rec_map_int16, nb_bits_each_map[i]) = \
-                lossless.interface_cython.compress_lossless_flattened_map(ref_map_int16,
+                interface_cython.compress_lossless_flattened_map(ref_map_int16,
                                                                           binary_probabilities[i, :])
             rec_int16[:, :, i] = numpy.reshape(rec_map_int16, (height_map, width_map))
     return (rec_int16, nb_bits_each_map)
