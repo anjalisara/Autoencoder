@@ -43,6 +43,7 @@ def compress_lossless_flattened_map(numpy.ndarray[numpy.int16_t, ndim=1] ref_map
             expressed in bits.
     
     """
+    #hallo
     # Cython automatically checks the number of dimensions
     # and the data-type of `ref_map_int16` and `probabilities`.
     cdef numpy.uint32_t size = ref_map_int16.size
