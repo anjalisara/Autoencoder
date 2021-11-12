@@ -6,11 +6,6 @@ pyximport.install()
 #changes
 # import kaggle.temp.Autoencoder.kodak_tensorflow.lossless.interface_cython
 # from kaggle.temp.Autoencoder.kodak_tensorflow.lossless import *
-# importing sys
-import sys
-  
-# adding Folder to the system path
-sys.path.insert(0, '/kaggle/temp/Autoencoder/kodak_tensorflow/')
 import lossless.interface_cython
 import tools.tools as tls
 
