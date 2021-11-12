@@ -11,10 +11,10 @@ pyximport.install()
 import sys
   
 # adding Folder to the system path
-sys.path.insert(0, '/kaggle/temp/Autoencoder/kodak_tensorflow/')
+sys.path.insert(0, '/kaggle/temp/Autoencoder/kodak_tensorflow/lossless')
 
-import lossless.compression
-import lossless.interface_cython
+import compression
+import interface_cython
 import lossless.stats
 import tools.tools as tls
 from eae.graph.EntropyAutoencoder import EntropyAutoencoder
@@ -64,13 +64,13 @@ class TesterLossless(object):
                                       (height_map, width_map, 1))
         ref_int16 = tls.cast_float_to_int16(centered_quantized_data/tiled_bin_widths)
         (rec_int16_0, nb_bits_each_map_0) = \
-            lossless.compression.compress_lossless_maps(ref_int16,
+            compression.compress_lossless_maps(ref_int16,
                                                         paths_to_binary_probabilities[0])
         numpy.testing.assert_equal(ref_int16,
                                    rec_int16_0,
                                    err_msg='The test fails as the lossless compression alters the signed integers.')
         (rec_int16_1, nb_bits_each_map_1) = \
-            lossless.compression.compress_lossless_maps(ref_int16,
+            compression.compress_lossless_maps(ref_int16,
                                                         paths_to_binary_probabilities[1])
         numpy.testing.assert_equal(ref_int16,
                                    rec_int16_1,
@@ -103,7 +103,7 @@ class TesterLossless(object):
         """
         ref_map_int16 = numpy.array([0, 1, -2, 2, 1, 0, 0, 0], dtype=numpy.int16)
         probabilities = numpy.array([0.5, 0.5, 0.5])
-        rec_map_int16 = lossless.interface_cython.compress_lossless_flattened_map(ref_map_int16, probabilities)[0]
+        rec_map_int16 = interface_cython.compress_lossless_flattened_map(ref_map_int16, probabilities)[0]
         numpy.testing.assert_equal(ref_map_int16,
                                    rec_map_int16,
                                    err_msg='The test fails as the lossless compression alters the signed integers.')
@@ -377,7 +377,7 @@ class TesterLossless(object):
         expanded_centered_quantized_data = tls.quantize_per_map(centered_data, bin_widths_test)
         centered_quantized_data = numpy.squeeze(expanded_centered_quantized_data,
                                                 axis=0)
-        nb_bits = lossless.compression.rescale_compress_lossless_maps(centered_quantized_data,
+        nb_bits = compression.rescale_compress_lossless_maps(centered_quantized_data,
                                                                       bin_widths_test,
                                                                       path_to_binary_probabilities)
         print('Number of bits in the bitstream: {}'.format(nb_bits))
