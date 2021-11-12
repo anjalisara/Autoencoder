@@ -6,6 +6,13 @@ import os
 import tensorflow as tf
 import pyximport
 pyximport.install()
+
+# importing sys
+import sys
+  
+# adding Folder to the system path
+sys.path.insert(0, '/kaggle/temp/Autoencoder/kodak_tensorflow/')
+
 import lossless.compression
 import lossless.interface_cython
 import lossless.stats
