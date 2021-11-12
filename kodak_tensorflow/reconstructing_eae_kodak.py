@@ -23,6 +23,9 @@ import tensorflow as tf
 import eae.batching
 import hevc.hevc
 import jpeg2000.jpeg2000
+from distutils.core import setup, Extension
+import numpy
+
 setup(
     ext_modules=[
         Extension("my_module", ["my_module.c"],
@@ -34,8 +37,6 @@ import tools.tools as tls
 from eae.graph.EntropyAutoencoder import EntropyAutoencoder
 from eae.graph.IsolatedDecoder import IsolatedDecoder
 
-from distutils.core import setup, Extension
-import numpy
 
 
 
