@@ -7,13 +7,8 @@ import sys
 #sys.path.append("kaggle/temp/Autoencoder/kodak_tensorflow/lossless")
 #changes
 # import kaggle.temp.Autoencoder.kodak_tensorflow.lossless.interface_cython
-<<<<<<< HEAD
 #from kaggle.temp.Autoencoder.kodak_tensorflow.lossless import *
 import interface_cython
-=======
-# from kaggle.temp.Autoencoder.kodak_tensorflow.lossless import *
-import lossless.interface_cython
->>>>>>> 029b06e0b01bce36844b90e50305288128a6db1c
 import tools.tools as tls
 
 # The functions are sorted in
